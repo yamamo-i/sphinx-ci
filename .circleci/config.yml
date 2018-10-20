@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: yamamoi/sphinx-ci
+    steps:
+      - checkout
+      - run:
+          name: create html
+          command: make html
+          #       - run:
+          #           name: create pdf
+          #           command: docker run --rm -it -v ${PWD}/sphinx-txt/:/workspace yamamoi:sphinx-ci latexpdfja
+      - store_artifacts:
+          path: ./sphinx-txt/build
+
