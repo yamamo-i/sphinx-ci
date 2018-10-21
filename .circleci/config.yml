@@ -5,12 +5,20 @@ jobs:
       - image: yamamoi/sphinx-ci
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: create html
-          command: make html
-          #       - run:
-          #           name: create pdf
-          #           command: docker run --rm -it -v ${PWD}/sphinx-txt/:/workspace yamamoi:sphinx-ci latexpdfja
+          command: |
+            (cd sphinx-txt&&make html)
+#      - run:
+#          name: create pdf
+#          command: |
+#            (cd sphinx-txt&&make latexpdf)
+      - run:
+          name: check dir
+          command: |
+            pwd; ls sphinx-txt/build
       - store_artifacts:
           path: ./sphinx-txt/build
 
