@@ -44,8 +44,11 @@ $ docker images
 
 * dockerを用いてhtml or pdfを作成する
 ```sh
-$ docker run --rm -v ${PWD}/sphinx-txt/:/workspace sphinx-ci (html|latexpdfja)
+$ docker run --rm -v ${PWD}/sphinx-txt/:/workspace yamamoi/sphinx-ci:latest (html|latexpdf)
 ```
+* 残課題  
+    * サロゲートペアが出力できない
+
 
 ### Docker Image
 
