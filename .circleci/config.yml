@@ -11,14 +11,10 @@ jobs:
           name: create html
           command: |
             (cd sphinx-txt&&make html)
-#      - run:
-#          name: create pdf
-#          command: |
-#            (cd sphinx-txt&&make latexpdf)
       - run:
-          name: check dir
+          name: create pdf
           command: |
-            pwd; ls sphinx-txt/build
+            (cd sphinx-txt&&make latexpdf)
       - store_artifacts:
           path: ./sphinx-txt/build
 

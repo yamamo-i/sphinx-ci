@@ -8,7 +8,7 @@ Welcome to sphinx-ci's documentation!
 
 テスト用のテキスト
 サロゲート文字テスト
-𠮷野家
+野家
 12345678910
 
 .. toctree::
