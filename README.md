@@ -1,6 +1,9 @@
 # sphinx-ci
 
+[![CircleCI](https://circleci.com/gh/yamamo-i/sphinx-ci.svg?style=svg)](https://circleci.com/gh/yamamo-i/sphinx-ci)
+
 sphinxでドキュメント生成を自動化する知見をためるレポジトリ
+
 
 ## 試したポイント
 
