@@ -17,3 +17,7 @@ jobs:
             (cd sphinx-txt&&wkhtmltopdf build/html/index.html build/output.pdf)
       - store_artifacts:
           path: ./sphinx-txt/build
+      - run:
+          neme: comment to the pull requests.
+          command: |
+            ./bin/url-comment.sh
