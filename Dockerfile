@@ -1,7 +1,7 @@
 FROM python:3.6-alpine
 
 RUN set -ex \
-    && apk add --no-cache make \
+    && apk add --no-cache make curl \
     && apk add --no-cache wkhtmltopdf \
         --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
         --allow-untrusted && \
