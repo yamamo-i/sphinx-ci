@@ -10,8 +10,7 @@ sphinxでドキュメント生成を自動化する知見をためるレポジ�
 * dockerを用いた生成環境の整備
 * CI
     * Jenkinsを見据えたshell
-    * circle-ci
-    * travis-ci
+    * circle-ci(本レポジトリではこちらを試している)
 
 ## sphinx
 
@@ -27,13 +26,17 @@ $ make html
 
 ### pdf作成
 
-* 以下のコマンドを発行
+* htmlファイルを変換するためhtml作成実行後、以下のコマンドを発行
 ```sh
-$ make latexpdf
+$ wkhtmltopdf build/html/index.html build/output.pdf
 ```
 * `build` ディレクトリ配下にpdfが作成される
 
 ## docker
+
+* sphinxやwkhtmltopdfがない場合はdocker環境を用意してある
+https://hub.docker.com/r/yamamoi/sphinx-ci/
+	* `wkhtmltopdf` タグが対応している
 
 ### docker imageの作成
 
@@ -43,19 +46,11 @@ $ docker build -t sphinx-ci .
 $ docker images
 ```
 
-### ドキュメントの生成
-
-* dockerを用いてhtml or pdfを作成する
-```sh
-$ docker run --rm -v ${PWD}/sphinx-txt/:/workspace yamamoi/sphinx-ci:latest (html|latexpdf)
-```
-* 残課題  
-    * サロゲートペアが出力できない
-
-
 ### Docker Image
 
 * こちらに置いてあります
-https://hub.docker.com/r/yamamoi/sphinx-ci/
 
 ## CircleCI
+
+* Pull Requestを出すとCircleCIが自動でdocsを出力する
+* Pull Requestのコメントに生成したドキュメントURLが自動で記載されます
